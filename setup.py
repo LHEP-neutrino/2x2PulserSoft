@@ -4,14 +4,15 @@ from setuptools import find_packages
 
 os.system("cp server_config.yaml ppulse/")
 
-if "--client_only" in sys.argv:
+client_only = os.environ.get("PPULSE_CLIENT_ONLY") == "1"
+
+if client_only:
     install_list = ['ppulse']
     cli_list = {
         "console_scripts": [
             "ppulse = ppulse.cli:ppulse",
         ]
     }
-    sys.argv.remove("--client_only")
 else:
     install_list = ['ppulse','ppulseserver']
     cli_list = {

@@ -7,7 +7,7 @@ cd 2x2PulserSoft
 ```
 Now edit the IP of the pulser device in ```server_config.yaml```. Afterwards the software can be installed running
 ```
-pip install . --client_only
+PPULSE_CLIENT_ONLY=1 pip install .
 ```
 
 ### Installation on pulser device
